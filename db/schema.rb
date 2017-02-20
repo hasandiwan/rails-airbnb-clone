@@ -10,9 +10,89 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170220183530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "sitter_id"
+    t.integer  "calendar_id"
+    t.integer  "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["calendar_id"], name: "index_bookings_on_calendar_id", using: :btree
+    t.index ["sitter_id"], name: "index_bookings_on_sitter_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean  "available"
+    t.integer  "sitter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sitter_id"], name: "index_calendars_on_sitter_id", using: :btree
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "photo"
+    t.integer  "age"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "sitter_grade"
+    t.string   "sitter_review"
+    t.string   "owner_review"
+    t.integer  "user_id"
+    t.integer  "sitter_id"
+    t.integer  "booking_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id", using: :btree
+    t.index ["sitter_id"], name: "index_reviews_on_sitter_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "sitters", force: :cascade do |t|
+    t.string   "pet_size"
+    t.string   "type"
+    t.integer  "fare"
+    t.integer  "missions"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sitters_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "zipcode"
+    t.string   "photo"
+    t.string   "phone"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_foreign_key "bookings", "calendars"
+  add_foreign_key "bookings", "sitters"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "calendars", "sitters"
+  add_foreign_key "pets", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "sitters"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "sitters", "users"
 end
