@@ -1,4 +1,6 @@
-
+<% if current_user == @user %>
+  <%= link_to "<button> Edit profile </button>".html_safe, edit_user_path(current_user) %>
+<% end %>
 
 
 <h2><%= @user.first_name %></h2>
@@ -7,12 +9,10 @@
 <p><%= @user.street_address %></p>
 <p><%= @user.zipcode %></p>
 <p><%= @user.city %></p>
-<p><%= @user.phone %></p>
+<p><%= @user.facebook_picture_url %></p>
 <p><%= @user.email %></p>
-<p><%= @user.description %></p>
+<p><%= @user.about %></p>
 <p><%= @user.encrypted_password %></p>
 
-<% if current_user == @user %>
-  <%= link_to "<button> Edit profile </button>".html_safe, edit_user_path(current_user) %>
-<% end %>
+
 
