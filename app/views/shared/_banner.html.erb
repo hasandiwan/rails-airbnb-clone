@@ -1,0 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/62379/pexels-photo-62379.jpeg');">
+  <div class="banner-content">
+    <h1>Welcome</h1>
+    <p>Find a pet sitter next to you</p>
+    <%= form_tag sitters_path, :method => 'get' do %>
+  <p>
+
+    <%= text_field_tag :location, params[:location], placeholder:'Location' %>
+
+    <%= text_field_tag :start_date, params[:start_date], placeholder:'From' %>
+
+    <%= text_field_tag :end_date, params[:end_date], placeholder:'To' %>
+  </p>
+<% end %>
+    <a class="btn btn-primary btn-lg">Search</a>
+  </div>
+</div>
