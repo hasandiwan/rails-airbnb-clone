@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= form_tag sitters_path, :method => 'get' do %>
+  <p>
+
+    <%= text_field_tag :location, params[:location] %>
+
+    <%= text_field_tag :start_date, params[:start_date] %>
+
+    <%= text_field_tag :end_date, params[:end_date] %>
+
+    <%= submit_tag "Search"%>
+  </p>
+<% end %>
