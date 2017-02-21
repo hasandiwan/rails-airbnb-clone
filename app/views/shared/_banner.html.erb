@@ -5,14 +5,15 @@
     <%= form_tag sitters_path, :method => 'get' do %>
   <p>
 
-    <%= text_field_tag  :location, params[:location], placeholder:'Location' %>
+    <%= text_field_tag  :location, params[:location], placeholder:'Location', class: 'location_text' %>
 
-    <%= date_field_tag 'datepicker', params[:start_date], placeholder:'From', class: 'DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
+    <%= text_field_tag :start_date, params[:start_date], placeholder:'From', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
 
-    <%= date_field_tag 'datepicker', params[:end_date], placeholder:'To', class: 'DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
+    <%= text_field_tag :end_date, params[:end_date], placeholder:'To', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
   </p>
+    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+
 <% end %>
-    <a class="btn btn-primary btn-lg">Search</a>
   </div>
 </div>
 <!--
