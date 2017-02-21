@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def profile
+
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -14,9 +19,4 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :photo, :photo_cache)
-  end
 end
