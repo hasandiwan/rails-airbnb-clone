@@ -44,8 +44,12 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
+    <% #if current_user.sitter %>
+      <%= link_to t(".top_call_to_action", default: "Become a sitter!"), "#", class: "btn btn-warning btn-sm" %>
+    <% # end %>
 
-    <%= link_to t(".top_call_to_action", default: "Become a sitter!"), "#", class: "btn btn-warning btn-sm" %>
+
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
