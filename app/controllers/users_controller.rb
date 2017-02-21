@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @sitter = Sitter.new
+  end
+
   def update
     current_user.update(user_params)
     redirect_to user_path
@@ -17,7 +21,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:first_name, :first_name,
+    params.require(:user).permit(:first_name, :last_name,
                                        :street_address, :city,
                                        :zipcode, :phone, :about,
                                        :reviews_attributes => [:content, :rating])
