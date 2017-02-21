@@ -1,34 +1,13 @@
-<%= form_for(current_user) do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-
-
-
-  <%= f.label :street_address %>
-  <%= f.text_field :street_address %>
-
-  <%= f.label :zipcode %>
-  <%= f.text_field :zipcode %>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :about %>
-  <%= f.text_field :about %>
-
-    <%= f.label :encrypted_password %>
-  <%= f.text_field :encrypted_password %>
-
-  <%= f.submit %>
-<% end %>
-
-
+<div class="container">
+  <%= simple_form_for(current_user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :street_address %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :about %>
+    <%= f.button :submit, "Update your profile!", class: "btn-primary" %>
+  <% end %>
+</div>
