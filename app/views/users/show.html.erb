@@ -13,14 +13,12 @@
       </div>
 
 
-    <div class="about"><%= @user.about %></div>
-
    </div>
 
    <div class="col-sm-8 col-md-8" >
-    <h2>Hi, I'm Alexia!</h2>
-    <p>I live in Paris</p>
-    <p>Je m'appelle Alexia, j'ai 28 ans et cela fait dix ans que j'habite à Paris. J'aime voyager, sortir avec mes amis, découvrir d'autres cultures et rencontrer de nouvelles personnes, que ce soit à côté de chez moi ou à l'autre bout du monde. J'ai fait plusieurs road trips en Écosse, en Chine, en Thaïlande, en Indonésie où encore au Brésil où j'ai vécu durant trois mois, et aux États-Unis, c'était l'aventure californienne et la découverte des parcs naturels ! Côté boulot, j'aime l'innovation, les nouveaux modes de consommation et de travail, je travaille dans l'écosystème des startups.</p>
+    <h2>Hi, I'm <%= @user.first_name %>!</h2>
+    <p> I live in <%= @user.city %></p>
+    <p><%= @user.about %></p>
     <div class="pets">
       <h4>I sit the following pets:</h4>
       <%= image_tag "cat.png" %>
@@ -30,13 +28,14 @@
       <%= image_tag "horse.png", class: "grayscale" %>
     </div>
     <div class="fare">
-      <p>40 $ / day</p>
+      <h4>Daily fare:</h4>
+      <h4>40 $ / day</h4>
     </div>
-
-
-
-
-
+    <div class="calendar">
+      <%= month_calendar do |date| %>
+          <strong><a><%= date.strftime("%d") %></a></strong>
+      <% end %>
+    </div>
    </div>
   </div>
 </div>
