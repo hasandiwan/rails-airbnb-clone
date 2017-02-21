@@ -1,12 +1,11 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(current_user) do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
 
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
+
 
   <%= f.label :street_address %>
   <%= f.text_field :street_address %>
@@ -23,8 +22,8 @@
   <%= f.label :email %>
   <%= f.text_field :email %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.label :about %>
+  <%= f.text_field :about %>
 
     <%= f.label :encrypted_password %>
   <%= f.text_field :encrypted_password %>
