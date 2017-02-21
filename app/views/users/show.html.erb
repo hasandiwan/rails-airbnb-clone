@@ -1,18 +1,44 @@
+<br>
+<br>
+
+
+<div class="container">
+  <div class="row">
+   <div class="col-sm-4 col-md-4" >
+      <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <%= image_tag "http://placehold.it/200x#200" %>
+        </div>
+      </div>
+
+    <div class="about"><%= @user.about %></div>
+
+   </div>
+
+   <div class="col-sm-8 col-md-8" >
+    <h2>Hi, I'm Alexia!</h2>
+    <p>I live in Paris</p>
+    <p>Je m'appelle Alexia, j'ai 28 ans et cela fait dix ans que j'habite à Paris. J'aime voyager, sortir avec mes amis, découvrir d'autres cultures et rencontrer de nouvelles personnes, que ce soit à côté de chez moi ou à l'autre bout du monde. J'ai fait plusieurs road trips en Écosse, en Chine, en Thaïlande, en Indonésie où encore au Brésil où j'ai vécu durant trois mois, et aux États-Unis, c'était l'aventure californienne et la découverte des parcs naturels ! Côté boulot, j'aime l'innovation, les nouveaux modes de consommation et de travail, je travaille dans l'écosystème des startups.</p>
+    <div class="pets">
+      <h4>I sit the following pets:</h4>
+      <%= image_tag "cat.png" %>
+      <%= image_tag "dog.png", class: "grayscale" %>
+      <%= image_tag "bird.png" %>
+      <%= image_tag "snake.png", class: "grayscale" %>
+      <%= image_tag "horse.png", class: "grayscale" %>
+    </div>
+    <div class="fare">
+      <p>40 $ / day</p>
+    </div>
 
 
 
-<h2><%= @user.first_name %></h2>
-<h2><%= @user.last_name %></h2>
-<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
-<p><%= @user.street_address %></p>
-<p><%= @user.zipcode %></p>
-<p><%= @user.city %></p>
-<p><%= @user.phone %></p>
-<p><%= @user.email %></p>
-<p><%= @user.description %></p>
-<p><%= @user.encrypted_password %></p>
+
+
+   </div>
+  </div>
+</div>
 
 <% if current_user == @user %>
   <%= link_to "<button> Edit profile </button>".html_safe, edit_user_path(current_user) %>
 <% end %>
-
