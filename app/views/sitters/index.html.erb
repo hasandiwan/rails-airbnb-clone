@@ -1,2 +1,8 @@
-<h1>Sitters#index</h1>
-<p>Find me in app/views/sitters/index.html.erb</p>
+<div id="sub-header">
+  <p><%= params[:location].capitalize! %>, from <%= params[:start_date] %> to <%= params[:end_date]%></p>
+</div>
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+
+
+

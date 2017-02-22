@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @sitter ||= Sitter.new(user: current_user) if params[:sitter]
   end
 
+  def edit
+    @sitter = Sitter.new
+  end
+
   def update
     @user = current_user
 
