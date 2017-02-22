@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+      <section class="login-form">
+        <form method="post" action="#" role="login">
+          <div class="text-center">
+            <%= image_tag "logo.png", :size => "120" %>
+          </div>
+          <h2>Login</h2>
+
+
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true, class:"form-control input-lg" %>
+              <%= f.input :password, required: false, class:"form-control input-lg" %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Log in", class:"btn btn-lg btn-primary btn-block" %>
+            </div>
+          <% end %>
+
+
+          <div class="pwstrength_viewport_progress"></div>
+
+
+        </form>
+        <%= render "devise/shared/links" %>
+      </section>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>
