@@ -8,11 +8,15 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 
+gem "geocoder"
+gem 'pg_search'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+
 gem "simple_calendar", "~> 2.0"
+gem 'faker'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -21,6 +25,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+
 
 group :development, :test do
   gem 'binding_of_caller'

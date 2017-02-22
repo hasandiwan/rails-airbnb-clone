@@ -76,6 +76,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
@@ -83,6 +85,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.5.3)
@@ -135,6 +138,10 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    pg_search (2.0.1)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      arel (>= 6)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -234,13 +241,16 @@ DEPENDENCIES
   carrierwave (~> 0.11.2)
   cloudinary
   devise
+  faker
   figaro
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
   omniauth-facebook
   pg
+  pg_search
   pry-byebug
   pry-rails
   puma
