@@ -14,8 +14,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    byebug
-
     @user.build_sitter unless @user.sitter
     @user.update(user_params)
 
