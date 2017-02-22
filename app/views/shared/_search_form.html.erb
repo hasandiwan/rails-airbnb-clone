@@ -1,0 +1,13 @@
+
+<%= form_tag sitters_path, :method => 'get' do %>
+  <p>
+
+    <%= text_field_tag  :street_address, params[:street_address], placeholder:'Location', class: 'location_text' %>
+
+    <%= text_field_tag :start_date, params[:start_date], placeholder:'From', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
+
+    <%= text_field_tag :end_date, params[:end_date], placeholder:'To', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
+  </p>
+    <button type="submit" class="btn btn-primary btn-lg">Search</button>
+
+<% end %>

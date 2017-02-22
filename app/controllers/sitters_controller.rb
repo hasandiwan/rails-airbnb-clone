@@ -1,6 +1,11 @@
 class SittersController < ApplicationController
   def index
-    @sitters = Sitter.all
+    @users = User.all
+    @sitters = if params[:term]
+    Sitter.joins(:user).merge(User.where('street_address LIKE ?', "%#{params[:term]}%"))
+  else
+    Sitter.all
+  end
   end
 
   def create
@@ -15,6 +20,6 @@ class SittersController < ApplicationController
 
   private
   def sitter_params
-    params.require(:sitter).permit(:pet_type, :pet_size, :fare)
+    params.require(:sitter).permit(:pet_type, :pet_size, :fare, :term)
   end
 end

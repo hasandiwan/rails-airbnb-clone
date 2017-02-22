@@ -8,6 +8,8 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 
+gem "geocoder"
+gem 'pg_search'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'cloudinary'
