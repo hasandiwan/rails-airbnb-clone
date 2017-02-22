@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   # users/:id
   def show
     @user = User.find(params[:id])
+    @sitter = @user.sitter
+    @sitter ||= Sitter.new(user: current_user) if params[:sitter]
   end
 
   def edit
@@ -14,7 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
+    @user = current_user
+
+    @user.build_sitter unless @user.sitter
+    @user.update(user_params)
+
     redirect_to user_path
   end
 
@@ -24,7 +30,8 @@ private
     params.require(:user).permit(:first_name, :last_name,
                                        :street_address, :city,
                                        :zipcode, :phone, :about,
-                                       :reviews_attributes => [:content, :rating])
+                                       :reviews_attributes => [:content, :rating],
+                                       :sitter_attributes => [:type, :fare, :missions])
   end
 
   # def edit

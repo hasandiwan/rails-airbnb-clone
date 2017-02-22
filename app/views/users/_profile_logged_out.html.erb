@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+   <div class="col-sm-4 col-md-4" >
+      <div class="row">
+        <div class="col-md-8 offset-md-3">
+            <%= image_tag "http://placehold.it/200x#200" %>
+        </div>
+      </div>
+   </div>
+
+   <div class="col-sm-8 col-md-8" >
+    <h2>Hi, I'm <%= @user.first_name %>!</h2>
+    <p> I live in <%= @user.city %></p>
+    <p><%= @user.about %></p>
+    <% if @user.sitter %>
+      <div class="pets">
+        <h4>I sit the following pets:</h4>
+        <%= image_tag "cat.png" %>
+        <%= image_tag "dog.png", class: "grayscale" %>
+        <%= image_tag "bird.png" %>
+        <%= image_tag "snake.png", class: "grayscale" %>
+        <%= image_tag "horse.png", class: "grayscale" %>
+      </div>
+      <div class="fare">
+        <h4>Daily fare:</h4>
+        <h4><%= @user.sitter.fare %> $ / day</h4>
+      </div>
+      <div class="calendar">
+        <%= month_calendar do |date| %>
+            <strong><a><%= date.strftime("%d") %></a></strong>
+        <% end %>
+      </div>
+    <% end %>
+   </div>
+  </div>
+</div>

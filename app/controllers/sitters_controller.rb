@@ -22,4 +22,16 @@ class SittersController < ApplicationController
   def sitter_params
     params.require(:sitter).permit(:pet_type, :pet_size, :fare, :term)
   end
+
+  # def new
+  #   @sitter = current_user.build_sitter
+  # end
+
+  # def update
+  #   @sitter = current_user
+  #   @sitter.update(user_params)
+
+  #   redirect_to user_path
+  # end
+
 end

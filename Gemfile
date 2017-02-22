@@ -14,6 +14,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+
+gem "simple_calendar", "~> 2.0"
 gem 'faker'
 
 gem 'sass-rails'
