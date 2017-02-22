@@ -32,9 +32,10 @@ private
   def user_params
     params.require(:user).permit(:first_name, :last_name,
                                        :street_address, :city,
-                                       :zipcode, :phone, :email, :about,
-                                       :reviews_attributes => [:id, :content, :rating],
-                                       :sitter_attributes => [:id, :type, :fare, :missions])
+                                       :zipcode, :phone, :about,
+                                       :photo, :photo_cache,
+                                       :reviews_attributes => [:content, :rating],
+                                       :sitter_attributes => [:type, :fare, :missions])
   end
 
   # def edit
