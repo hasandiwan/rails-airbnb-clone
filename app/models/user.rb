@@ -4,8 +4,6 @@ class User < ApplicationRecord
   geocoded_by :street_address
   after_validation :geocode, if: :street_address_changed?
 
-  has_one :sitter
-
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
@@ -15,6 +13,11 @@ class User < ApplicationRecord
 
   has_one :sitter
   accepts_nested_attributes_for :sitter
+
+  def self.find_by_address(term)
+    User.joins(:sitter).near(term, 20)
+  end
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
