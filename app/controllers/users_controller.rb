@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
-  def profile
+  def create_sitter
+    @user = current_user
+    @user.build_sitter unless @user.sitter
+    @user.save
 
+    redirect_to @user
   end
 
   # users/:id
@@ -18,10 +22,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    @user.build_sitter unless @user.sitter
     @user.update(user_params)
 
-    redirect_to user_path
+    redirect_to @user
   end
 
 private
@@ -30,6 +33,7 @@ private
     params.require(:user).permit(:first_name, :last_name,
                                        :street_address, :city,
                                        :zipcode, :phone, :about,
+                                       :photo, :photo_cache,
                                        :reviews_attributes => [:content, :rating],
                                        :sitter_attributes => [:type, :fare, :missions])
   end
