@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:new, :create]
 
-  resources :sitters, only: [:index]
+  resources :sitters, only: [:index, :new]
 
   # get 'sitters/index'
 

@@ -4,7 +4,6 @@
 
 <% if current_user == @user %>
   <%= render "profile_logged_in" %>
-  <%= link_to "<button> Edit profile </button>".html_safe, edit_user_path(current_user) %>
 <% else %>
   <%= render "profile_logged_out" %>
 <% end %>

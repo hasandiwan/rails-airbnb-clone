@@ -12,23 +12,25 @@
     <h2>Hi, I'm <%= @user.first_name %>!</h2>
     <p> I live in <%= @user.city %></p>
     <p><%= @user.about %></p>
-    <div class="pets">
-      <h4>I sit the following pets:</h4>
-      <%= image_tag "cat.png" %>
-      <%= image_tag "dog.png", class: "grayscale" %>
-      <%= image_tag "bird.png" %>
-      <%= image_tag "snake.png", class: "grayscale" %>
-      <%= image_tag "horse.png", class: "grayscale" %>
-    </div>
-    <div class="fare">
-      <h4>Daily fare:</h4>
-      <h4>40 $ / day</h4>
-    </div>
-    <div class="calendar">
-      <%= month_calendar do |date| %>
-          <strong><a><%= date.strftime("%d") %></a></strong>
-      <% end %>
-    </div>
+    <% if @user.sitter %>
+      <div class="pets">
+        <h4>I sit the following pets:</h4>
+        <%= image_tag "cat.png" %>
+        <%= image_tag "dog.png", class: "grayscale" %>
+        <%= image_tag "bird.png" %>
+        <%= image_tag "snake.png", class: "grayscale" %>
+        <%= image_tag "horse.png", class: "grayscale" %>
+      </div>
+      <div class="fare">
+        <h4>Daily fare:</h4>
+        <h4><%= @user.sitter.fare %> $ / day</h4>
+      </div>
+      <div class="calendar">
+        <%= month_calendar do |date| %>
+            <strong><a><%= date.strftime("%d") %></a></strong>
+        <% end %>
+      </div>
+    <% end %>
    </div>
   </div>
 </div>
