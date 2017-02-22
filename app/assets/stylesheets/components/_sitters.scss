@@ -15,5 +15,25 @@
 #sub-header p {
   padding: 10px;
 
+}
 
+.map {
+  position: relative;
+  display: block;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+
+.container {
+  padding-top: 30px;
+  left: 0;
+  position:relative;
+  float: left;
+  height: 100%;
+}
+
+
+.debug {
+  border: 1px red solid;
 }
