@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  geocoded_by :street_address
+  after_validation :geocode, if: :street_address_changed?
+
   has_one :sitter
 
   mount_uploader :photo, PhotoUploader

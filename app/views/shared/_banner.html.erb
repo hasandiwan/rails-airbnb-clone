@@ -2,18 +2,23 @@
   <div class="banner-content">
     <h1>Welcome</h1>
     <p>Find a pet sitter next to you</p>
-    <%= form_tag sitters_path, :method => 'get' do %>
-  <p>
 
-    <%= text_field_tag  :location, params[:location], placeholder:'Location', class: 'location_text' %>
 
-    <%= text_field_tag :start_date, params[:start_date], placeholder:'From', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
+    <%= form_tag(sitters_path, method: :get) do %>
+      <%= text_field_tag :term,  params[:term], placeholder:'Location', class: 'location_text' %>
+      <%= submit_tag 'Search', name: nil, class: 'btn btn-primary btn-sm' %>
 
-    <%= text_field_tag :end_date, params[:end_date], placeholder:'To', class: 'datepicker DateInput__display-text DateInput__display-text--has-input DateInput__display-text--focused' %>
-  </p>
-    <button type="submit" class="btn btn-primary btn-lg">Search</button>
 
-<% end %>
+    <% end %>
+
+
+
+
+
+
+
+
+
   </div>
 </div>
 <!--
