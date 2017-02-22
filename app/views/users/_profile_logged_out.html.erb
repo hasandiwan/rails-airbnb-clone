@@ -15,6 +15,7 @@
     <% if @user.sitter %>
       <div class="pets">
         <h4>I sit the following pets:</h4>
+        <%= @user.sitter.type %>
         <%= image_tag "cat.png" %>
         <%= image_tag "dog.png", class: "grayscale" %>
         <%= image_tag "bird.png" %>

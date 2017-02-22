@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    get "create_sitter", to: "users#create_sitter"
+
+  end
 
   resources :bookings, only: [:new, :create]
 

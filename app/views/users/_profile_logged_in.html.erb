@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= form_for(current_user) do |f| %>
+    <%= form_for(current_user)do |f| %>
       <div class="col-sm-4 col-md-4" >
         <%= image_tag "http://placehold.it/200x#200" %>
         <div class="panel panel-default">
@@ -65,10 +65,19 @@
               </div>
               <div class="panel-body">
                 <%= image_tag "cat.png" %>
-                <%= image_tag "dog.png", class: "grayscale" %>
+                <%= check_box_tag :type %>
+
+                <%= image_tag "dog.png" %>
+                <%= check_box_tag :type %>
+
                 <%= image_tag "bird.png" %>
-                <%= image_tag "snake.png", class: "grayscale" %>
-                <%= image_tag "horse.png", class: "grayscale" %>
+                <%= check_box_tag :type %>
+
+                <%= image_tag "snake.png" %>
+                <%= check_box_tag :type %>
+
+                <%= image_tag "horse.png" %>
+                <%= check_box_tag :type %>
               </div>
             </div>
 
@@ -91,13 +100,13 @@
 
         <% end %>
 
-        <%= link_to "<button> Save changes </button>".html_safe, edit_user_path(current_user) %>
+        <%= f.submit %>
 
       </div>
     <% end %>
     <% if !@sitter.present? %>
       <%#= link_to "<button> Become a petsitter! </button>".html_safe, new_sitter_path %>
-      <%= link_to "<button> Become a petsitter! </button>".html_safe, user_path(id: current_user, sitter: true) %>
+      <%= link_to "Become a petsitter!", user_create_sitter_path(@user), class: "btn btn-default" %>
     <% end %>
   </div>
 </div>
