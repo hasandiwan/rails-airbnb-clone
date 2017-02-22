@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
   </head>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
@@ -28,11 +29,11 @@
 
     <!-- Your footer code -->
 
-    <%= javascript_include_tag 'application' %>
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
+    <%= javascript_include_tag 'application' %>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
