@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
 
     # @booking.set_price
     if @booking.save
-      redirect_to booking_confirmation_path(@booking), notice: "Booking created!"
+      redirect_to booking_confirmation_path(@booking)
     else
       render :new
     end
