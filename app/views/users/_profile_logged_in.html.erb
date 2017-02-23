@@ -2,6 +2,7 @@
   <div class="row">
     <%= simple_form_for(@user) do |f| %>
       <div class="col-sm-4 col-md-4" >
+
         <% if current_user and current_user.provider == "facebook" %>
           <%= image_tag current_user.facebook_picture_url, class: "img-thumbnail" %>
         <% elsif %>
@@ -11,6 +12,7 @@
         <% end %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
+                                     
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">About you</h3>
