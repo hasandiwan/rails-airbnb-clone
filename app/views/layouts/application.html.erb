@@ -8,15 +8,16 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
   </head>
 
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
 
 
 
   <body>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
   <%= render 'shared/navbar' %>
   <%= render 'shared/flashes' %>
 

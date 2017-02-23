@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     get "create_sitter", to: "users#create_sitter"
+    delete "destroy_sitter", to: "users#destroy_sitter"
 
   end
 
