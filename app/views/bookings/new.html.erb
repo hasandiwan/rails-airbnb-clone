@@ -1,2 +1,13 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.input :end_date, as: :date, html5: true %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :sitter_id, as: :hidden %>
+  <%= f.input :price, input_html: { value: @user.sitter.fare }, as: :hidden %>
+
+  <%#= set_days(DateTime.now, DateTime.now + 2.days) %>
+
+  <%= f.button :submit, "Book this petsitter", class: "btn-primary" %>
+  <%= link_to "Back", user_path(@user), class: "btn btn-primary" %>
+<% end %>
+

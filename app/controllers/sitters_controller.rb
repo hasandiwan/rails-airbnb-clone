@@ -1,8 +1,7 @@
 class SittersController < ApplicationController
   def index
-    @users = if params[:term]
+    @users = if params[:term].present?
       User.find_by_address(params[:term])
-    # @user_coordinates = { lat: @sitter.user.latitude, lng: @sitter.user.longitude }
     else
       User.joins(:sitter)
     end
