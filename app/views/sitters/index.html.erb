@@ -27,11 +27,11 @@
               <h5>Takes care of: </h5>
               <div class="panel-body">
                 <ul>
-                  <li><%= image_tag "cat.png", class: "animal-avatar" %></li>
-                  <li><%= image_tag "dog.png", class: "animal-avatar grayscale" %></li>
-                  <li><%= image_tag "bird.png", class: "animal-avatar" %></li>
-                  <li><%= image_tag "snake.png", class: "animal-avatar grayscale" %></li>
-                  <li><%= image_tag "horse.png", class: "animal-avatar grayscale" %></li>
+                  <li><%= image_tag "cat.png", title: "Cats", class: "animal-avatar" %></li>
+                  <li><%= image_tag "dog.png", title: "Dogs", class: "animal-avatar grayscale" %></li>
+                  <li><%= image_tag "bird.png", title: "Birds", class: "animal-avatar" %></li>
+                  <li><%= image_tag "snake.png", title: "Reptiles", class: "animal-avatar grayscale" %></li>
+                  <li><%= image_tag "horse.png", title: "Farm Animals", class: "animal-avatar grayscale" %></li>
                   </ul>
                 </ul>
               </div>
@@ -42,7 +42,7 @@
       <% end %>
     </div>
     <div class="col-md-4">
-      <div id="map" style="width: 100%; height: 400px;"></div>
+      <div id="map" style="width: 100%; height: 600px;"></div>
     </div>
   </div>
 </div>
