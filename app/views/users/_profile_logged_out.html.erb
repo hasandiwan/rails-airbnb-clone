@@ -6,7 +6,7 @@
           <% if current_user and current_user.provider == "facebook" %>
             <%= image_tag current_user.facebook_picture_url %>
           <% elsif @user.photo.present? %>
-            <%= cl_image_tag @user.photo, height: 200, width: 200, crop: :fill %>
+            <%= image_tag @user.photo, height: 200, width: 200, crop: :fill %>
           <% else %>
             <%= image_tag "http://fillmurray.com/g/250/250" %>
           <% end %>
