@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   end
 
-  resources :bookings, only: [:new, :create]
+  resources :bookings, only: [:new, :create] do
+    get "confirmation"
+  end
 
   resources :sitters, only: [:index, :new]
 

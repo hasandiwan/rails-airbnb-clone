@@ -8,10 +8,20 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+
     # @booking.set_price
     if @booking.save
-      redirect_to user_path(current_user), notice: "Booking created!"
+      redirect_to booking_confirmation_path(@booking), notice: "Booking created!"
+    else
+      render :new
     end
+  end
+
+  def confirmation
+    @booking = Booking.where(user_id:current_user.id).last
+    # @booking.price = @booking.set_price(@booking.start_date, @booking.end_date)
+
+
   end
 
   private
