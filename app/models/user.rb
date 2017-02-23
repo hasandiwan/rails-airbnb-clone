@@ -40,4 +40,9 @@ class User < ApplicationRecord
     return user
   end
 
+  def show
+    @user = User.find(params[:id])
+    @alert_message = "You are viewing #{@user.name}"
+  end
+
 end

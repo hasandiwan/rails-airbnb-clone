@@ -1,12 +1,16 @@
 class SittersController < ApplicationController
   def index
-    @users = User.all
-    @sitters = if params[:term]
+    @users = if params[:term].present?
       User.find_by_address(params[:term])
-    # User.near("%#{params[:term]}%", 20) unless User.sitter == nil
-  else
-    Sitter.all
-  end
+    else
+      User.joins(:sitter)
+    end
+
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def create

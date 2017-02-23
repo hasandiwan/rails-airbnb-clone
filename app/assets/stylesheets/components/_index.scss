@@ -1,6 +1,14 @@
 html, body {
   height: 100%;
 }
+
+a {
+  color: #840266;
+}
+
+div {
+  display: block;
+}
 @import "alert";
 @import "avatars";
 @import "badges";
@@ -8,3 +16,4 @@ html, body {
 @import "footer";
 @import "banner";
 @import "sitters";
+@import "cards";

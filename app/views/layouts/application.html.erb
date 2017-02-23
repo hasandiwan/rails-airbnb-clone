@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TODO</title>
+    <title>Pet Sitters</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
   </head>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
@@ -17,22 +18,17 @@
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
   <%= render 'shared/navbar' %>
 
-    <div class="page-wrap">
-      <%= yield %>
-    </div>
 
-
-
-
-
-
-    <!-- Your footer code -->
-
-    <%= javascript_include_tag 'application' %>
+     <%= yield %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>

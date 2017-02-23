@@ -21,6 +21,7 @@ require 'faker'
     email: Faker::Internet.email,
     password: Faker::Number.number(6),
     about: Faker::Lorem.paragraphs,
+    photo: Faker::Avatar.image,
   })
   user.save!
 end
