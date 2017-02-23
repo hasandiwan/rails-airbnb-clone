@@ -1,7 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Your booking starts on the <%= @booking.start_date.strftime("%m/%d/%Y") %> and ends on the  <%= @booking.end_date.strftime("%m/%d/%Y") %></h4>
 
+      <h3>Total price: <%= @booking.price %></h3>
 
-<p>Your booking starts on the <%= @booking.start_date %> and ends on the  <%= @booking.end_date %></p>
-
-<p>Total price: <%= @booking.price %></p>
+      <%= link_to "Back to listings", sitters_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
 

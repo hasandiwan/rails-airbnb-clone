@@ -38,7 +38,8 @@
             <strong><a><%= date.strftime("%d") %></a></strong>
         <% end %>
       </div>
-      <%= button_to "Hire this petsitter", new_booking_path, method: :get, params: { id: @user.id }, class: "btn btn-warning" %>
+
+      <%= button_to "Hire this petsitter", new_booking_path, method: :get, params: { id: @user.id }, class: "btn btn-primary" %>
     <% end %>
    </div>
   </div>
