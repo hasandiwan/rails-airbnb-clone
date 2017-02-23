@@ -27,6 +27,12 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def destroy_sitter
+    current_user.sitter.destroy
+
+    redirect_to current_user
+  end
+
 private
 
   def user_params
