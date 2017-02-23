@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20170222174846) do
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
-
   create_table "sitters", force: :cascade do |t|
     t.string   "pet_size"
     t.string   "pet_type"
