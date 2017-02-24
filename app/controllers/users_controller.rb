@@ -13,6 +13,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sitter = @user.sitter
     @sitter ||= Sitter.new(user: current_user) if params[:sitter]
+
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+        marker.lat user.latitude
+        marker.lng user.longitude
+        # marker.infowindow render_to_string(partial: "/users/map_box", locals: { user: user })
+    end
   end
 
   def edit
@@ -32,6 +38,16 @@ class UsersController < ApplicationController
 
     redirect_to current_user
   end
+
+  def index
+      @users = User.where.not(latitude: nil, longitude: nil)
+
+      @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+        marker.lat user.latitude
+        marker.lng user.longitude
+        # marker.infowindow render_to_string(partial: "/users/map_box", locals: { user: user })
+      end
+    end
 
 private
 
