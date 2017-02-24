@@ -5,5 +5,4 @@ class Sitter < ApplicationRecord
   #     user: [ :street_address ]
   #     }
   belongs_to :user
-  has_many :reviews, dependent: :destroy
 end

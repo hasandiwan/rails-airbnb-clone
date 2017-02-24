@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sitter = @user.sitter
     @sitter ||= Sitter.new(user: current_user) if params[:sitter]
+    @review = Review.new
   end
 
   def edit

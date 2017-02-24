@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_one :sitter
   accepts_nested_attributes_for :sitter
 
+  has_many :reviews, dependent: :destroy
+
   def self.find_by_address(term)
     User.joins(:sitter).near(term, 20)
   end
