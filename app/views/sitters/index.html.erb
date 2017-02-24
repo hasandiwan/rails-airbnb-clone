@@ -1,44 +1,49 @@
 <div class="container-fluid">
   <div class="row">
-
     <div class="col-xs-12 col-sm-6 col-md-8">
       <% @users.each do |user| %>
         <div class="card col-sm-6 col-md-6">
           <div class="row">
-            <div class=" col-xs-12 col-md-6 col-sm-6 card-image">
-              <% if user.facebook_picture_url? %>
-                <%= image_tag user.facebook_picture_url, height: 200, width: 200, crop: :fill %>
-              <% elsif user.photo.present? %>
-                <%= image_tag user.photo, height: 200, width: 200, crop: :fill %>
-              <% else %>
-                <%= image_tag "https://testapp.letsmuuv.com/assets/img/img_placeholder_user.gif", height: 200, width: 200, crop: :fill %>
-              <% end %>
-            </div>
-            <div class="card-description col-xs-12 col-md-6 col-sm-6">
-              <ul>
-                <li><h4><%= link_to user.first_name, user_path(user) %></h4></li>
-                <li><h6>Location: <%= user.city %></h6></li>
-                <li><h6>Missions: <%= user.sitter.missions %></h6></li>
-                <br>
-                <li><h5>Fare: $<%= user.sitter.fare %></h5></li>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 col-md-10">
-              <h5>Takes care of: </h5>
-              <div class="panel-body">
-                <ul>
-                  <li><%= image_tag "cat.png", title: "Cats", class: "animal-avatar" %></li>
-                  <li><%= image_tag "dog.png", title: "Dogs", class: "animal-avatar grayscale" %></li>
-                  <li><%= image_tag "bird.png", title: "Birds", class: "animal-avatar" %></li>
-                  <li><%= image_tag "snake.png", title: "Reptiles", class: "animal-avatar grayscale" %></li>
-                  <li><%= image_tag "horse.png", title: "Farm Animals", class: "animal-avatar grayscale" %></li>
-                  </ul>
-                </ul>
+            <div class="card-listing">
+              <div class=" col-xs-12 col-md-6 col-sm-6">
+                <div class="text-center">
+
+                  <% if user.facebook_picture_url? %>
+                    <%= image_tag user.facebook_picture_url, class: "listing-pic" %>
+                  <% elsif user.photo.present? %>
+                    <%= cl_image_tag user.photo, crop: "crop", class: "listing-pic"  %>
+                  <% else %>
+                    <%= image_tag "https://testapp.letsmuuv.com/assets/img/img_placeholder_user.gif", height: 200, width: 200, crop: :fill %>
+                  <% end %>
+
+                  <div class="panel-body">
+                    <ul>
+                      <li><%= image_tag "cat.png", title: "Cats", class: "animal-avatar" %></li>
+                      <li><%= image_tag "dog.png", title: "Dogs", class: "animal-avatar grayscale" %></li>
+                      <li><%= image_tag "bird.png", title: "Birds", class: "animal-avatar" %></li>
+                      <li><%= image_tag "snake.png", title: "Reptiles", class: "animal-avatar grayscale" %></li>
+                      <li><%= image_tag "horse.png", title: "Farm Animals", class: "animal-avatar grayscale" %></li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+              </div>
+              <div class="card-description col-xs-12 col-md-6 col-sm-6">
+                <%= link_to user_path(user) do %>
+                  <h4><%= user.first_name %> <%= user.last_name %></h4>
+                <% end %>
+
+
+                  <p><%= user.city %></p>
+                  <h6>Missions: <%= user.sitter.missions %></h6>
+                  <br>
+                  <h5>Fare: $<%= user.sitter.fare %></h5>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       <% end %>
     </div>
