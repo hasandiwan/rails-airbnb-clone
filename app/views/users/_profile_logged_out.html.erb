@@ -1,47 +1,38 @@
 <div class="container">
+  <!-- row #1 with photo and description -->
   <div class="row">
-   <div class="col-sm-4 col-md-4" >
-      <div class="row">
-        <div class="col-md-8 offset-md-3">
-          <% if @user.facebook_picture_url %>
-            <%= image_tag @user.facebook_picture_url, class: "img-thumbnail" %>
-            <% elsif @user.photo.present? %>
-             <%= cl_image_tag @user.photo, :width=>250, :height=>250, :gravity=>"face", :crop=>"fill", class: "img-thumbnail" %>
-             <% else %>
-              <%= image_tag "https://testapp.letsmuuv.com/assets/img/img_placeholder_user.gif", class: "img-thumbnail" %>
-          <% end %>
-        </div>
-      </div>
-   </div>
 
-   <div class="col-sm-8 col-md-8" >
-    <h1>Hi, I'm <%= @user.first_name %>!</h2>
-    <h4> I live in <%= @user.city %></h4>
-    <p><%= @user.about %></p>
+    <div class="col-sm-4 col-md-12 user-header" >
+      <!-- user photo -->
+      <div class="col-md-3">
+        <% if @user.facebook_picture_url %>
+          <%= image_tag @user.facebook_picture_url, class: "img-thumbnail" %>
+        <% elsif @user.photo.present? %>
+          <%= cl_image_tag @user.photo, class: "img-thumbnail" %>
+        <% else %>
+           <%= image_tag "https://testapp.letsmuuv.com/assets/img/img_placeholder_user.gif", style: "width: 200px; height: 200px;", class: "img-thumbnail" %>
 
-    <% if @user.sitter %>
-      <div class="pets">
-        <h5>I sit the following pets:</h5>
-        <%= @user.sitter.pet_type %>
-        <%= image_tag "cat.png" %>
-        <%= image_tag "dog.png", class: "grayscale" %>
-        <%= image_tag "bird.png" %>
-        <%= image_tag "snake.png", class: "grayscale" %>
-        <%= image_tag "horse.png", class: "grayscale" %>
-      </div>
-      <div class="fare">
-        <h5>Daily fare:</h5>
-        <p><%= @user.sitter.fare %> $ / day</p>
-      </div>
-      <div class="calendar">
-        <%= month_calendar do |date| %>
-            <strong><a><%= date.strftime("%d") %></a></strong>
         <% end %>
       </div>
-      <div class="col-md-4">
-        <div id="map" style="width: 100%; height: 600px;"></div>
+      <!-- user info -->
+      <div class="col-md-5">
+        <h2>Hi, I'm <%= @user.first_name %>!</h2>
+        <h4> I live in <%= @user.city %></h4>
+        <p><%= @user.about %></p>
+      </div>
+    </div>
+  </div>
+  <!-- in case the user is a sitter -->
+  <% if @user.sitter %>
 
-        <% content_for(:after_js) do %>
+  <!-- row #2 with map and sitter info -->
+    <div class="row">
+      <!-- map -->
+      <div class="col-md-3">
+        <div id="map" style="width: 200px; height: 200px;">
+        </div>
+
+          <% content_for(:after_js) do %>
           <%= javascript_tag do %>
             $(document).ready(function() {
               var handler = Gmaps.build('Google');
@@ -61,9 +52,32 @@
           <% end %>
         <% end %>
       </div>
-      <%= button_to "Hire this petsitter", new_booking_path, method: :get, params: { id: @user.id }, class: "btn btn-primary" %>
-    <% end %>
-   </div>
-  </div>
+      <div class="col-md-5">
+        <!-- sitter info -->
+        <div class="pets-list">
+          <h5>I sit the following pets:</h5>
+          <% @user.sitter.pet_types.each do |pet_type| %>
+            <%= pet_type.get_image %>
+          <% end %>
+        </div>
+        <div class="fare">
+          <h5>Daily fare:</h5>
+          <p><%= @user.sitter.fare %> $ / day</p>
+        </div>
+
+        <%= button_to "Hire this petsitter", new_booking_path, method: :get, params: { id: @user.id }, class: "btn btn-primary" %>
+      </div>
+    </div>
+    <!-- #3 row -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="calendar">
+          <%= month_calendar do |date| %>
+              <strong><a><%= date.strftime("%d") %></a></strong>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 

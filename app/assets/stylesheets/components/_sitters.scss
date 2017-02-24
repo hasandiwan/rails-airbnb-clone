@@ -25,44 +25,45 @@
   bottom: 0;
 }
 
-.container {
-  padding-top: 30px;
-  left: 0;
-  position:relative;
-  float: left;
-  height: 100%;
-}
-
 
 .debug {
   border: 1px red solid;
 }
 
 
+user_sitter_pet_types .checkbox {
+ display: inline-block;
+}
+
+.user_sitter_pet_types .checkbox input[type="checkbox"]:not(:checked) + .pets{
+ filter: grayscale(2);
+ opacity: .7;
+}
+
+
 .pets {
-  height: 65px;
-  width: 65px;
-  display: block;
+ height: 65px;
+ width: 65px;
+ display: inline-block;
 }
 
 .Dog {
-  background: image-url('dog.png') no-repeat;
+ background: image-url('dog.png') no-repeat;
 }
 
 .Cat {
-  background: image-url('cat.png') no-repeat;
+ background: image-url('cat.png') no-repeat;
 }
 
 .Bird {
-  background: image-url('bird.png') no-repeat;
+ background: image-url('bird.png') no-repeat;
 }
 
 .Reptile {
-  background: image-url('snake.png') no-repeat;
+ background: image-url('snake.png') no-repeat;
 }
 
 .Horse {
-  background: image-url('horse.png') no-repeat;
+ background: image-url('horse.png') no-repeat;
 }
-
 
