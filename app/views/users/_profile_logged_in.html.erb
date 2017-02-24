@@ -7,7 +7,7 @@
           <%= image_tag current_user.facebook_picture_url, class: "img-thumbnail" %>
         <% elsif %>
 
-          <%= cl_image_tag @user.photo, class: "img-thumbnail" %>
+          <%= cl_image_tag @user.photo, :width=>250, :height=>250, :gravity=>"face", :crop=>"fill", class: "img-thumbnail" %>
 
         <% elsif %>
           <%= image_tag "http://placehold.it/250x250", class: "img-thumbnail" %>

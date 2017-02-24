@@ -11,7 +11,9 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: [:facebook]
 
-  has_one :sitter
+  has_one :sitter, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+
   accepts_nested_attributes_for :sitter
 
   has_many :reviews, dependent: :destroy

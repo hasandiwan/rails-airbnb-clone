@@ -6,7 +6,7 @@
           <% if @user.facebook_picture_url %>
             <%= image_tag @user.facebook_picture_url, class: "img-thumbnail" %>
             <% elsif @user.photo.present? %>
-             <%= cl_image_tag @user.photo, class: "img-thumbnail" %>
+             <%= cl_image_tag @user.photo, :width=>250, :height=>250, :gravity=>"face", :crop=>"fill", class: "img-thumbnail" %>
              <% else %>
               <%= image_tag "https://testapp.letsmuuv.com/assets/img/img_placeholder_user.gif", class: "img-thumbnail" %>
           <% end %>
