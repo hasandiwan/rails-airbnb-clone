@@ -52,14 +52,11 @@
       </div>
       <div class="col-md-5">
         <!-- sitter info -->
-        <div class="pets">
+        <div class="pets-list">
           <h5>I sit the following pets:</h5>
-          <%= @user.sitter.pet_type %>
-          <%= image_tag "cat.png", class: "animal-display" %>
-          <%= image_tag "dog.png", class: "grayscale animal-display" %>
-          <%= image_tag "bird.png", class: "animal-display" %>
-          <%= image_tag "snake.png", class: "grayscale animal-display" %>
-          <%= image_tag "horse.png", class: "grayscale animal-display" %>
+          <% @user.sitter.pet_types.each do |pet_type| %>
+            <%= pet_type.get_image %>
+          <% end %>
         </div>
         <div class="fare">
           <h5>Daily fare:</h5>
