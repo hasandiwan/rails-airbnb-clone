@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223165709) do
+ActiveRecord::Schema.define(version: 20170224182305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,19 @@ ActiveRecord::Schema.define(version: 20170223165709) do
     t.index ["sitter_id"], name: "index_calendars_on_sitter_id", using: :btree
   end
 
+  create_table "pet_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pet_types_sitters", id: false, force: :cascade do |t|
+    t.integer "pet_type_id"
+    t.integer "sitter_id"
+    t.index ["pet_type_id"], name: "index_pet_types_sitters_on_pet_type_id", using: :btree
+    t.index ["sitter_id"], name: "index_pet_types_sitters_on_sitter_id", using: :btree
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
@@ -65,8 +78,6 @@ ActiveRecord::Schema.define(version: 20170223165709) do
   end
 
   create_table "sitters", force: :cascade do |t|
-    t.string   "pet_size"
-    t.string   "pet_type"
     t.integer  "fare"
     t.integer  "missions"
     t.integer  "user_id"
@@ -111,6 +122,8 @@ ActiveRecord::Schema.define(version: 20170223165709) do
   add_foreign_key "bookings", "sitters"
   add_foreign_key "bookings", "users"
   add_foreign_key "calendars", "sitters"
+  add_foreign_key "pet_types_sitters", "pet_types"
+  add_foreign_key "pet_types_sitters", "sitters"
   add_foreign_key "pets", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "sitters"

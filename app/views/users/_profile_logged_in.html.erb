@@ -75,10 +75,16 @@
                 <h3 class="panel-title">Pets you sit:</h3>
               </div>
               <div class="panel-body">
+                <%= s.association :pet_types, as: :check_boxes, label_method: :get_image %>
+
+
+
+
+                <!--<%= check_box_tag :pet_type %>
                 <%= image_tag "cat.png" %>
-                <%= check_box_tag :pet_type %>
 
                 <%= image_tag "dog.png" %>
+                <%= s.association :pet_types %>
                 <%= check_box_tag :pet_type %>
 
                 <%= image_tag "bird.png" %>
@@ -88,7 +94,7 @@
                 <%= check_box_tag :pet_type %>
 
                 <%= image_tag "horse.png" %>
-                <%= check_box_tag :pet_type %>
+                <%= check_box_tag :pet_type %>-->
               </div>
             </div>
 

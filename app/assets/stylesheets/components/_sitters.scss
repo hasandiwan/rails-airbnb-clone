@@ -39,3 +39,30 @@
 }
 
 
+.pets {
+  height: 65px;
+  width: 65px;
+  display: block;
+}
+
+.Dog {
+  background: image-url('dog.png') no-repeat;
+}
+
+.Cat {
+  background: image-url('cat.png') no-repeat;
+}
+
+.Bird {
+  background: image-url('bird.png') no-repeat;
+}
+
+.Reptile {
+  background: image-url('snake.png') no-repeat;
+}
+
+.Horse {
+  background: image-url('horse.png') no-repeat;
+}
+
+
