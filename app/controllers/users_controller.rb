@@ -59,7 +59,8 @@ private
                                        :zipcode, :phone, :about,
                                        :photo, :photo_cache,
                                        :reviews_attributes => [:content, :rating],
-                                       :sitter_attributes => [:type, :fare, :missions])
+                                       :sitter_attributes => [:type, :fare, :missions, pet_type_ids: []])
+
   end
 
   # def edit

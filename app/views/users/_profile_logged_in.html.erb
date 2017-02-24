@@ -7,7 +7,7 @@
           <%= image_tag current_user.facebook_picture_url, class: "img-thumbnail" %>
         <% elsif %>
 
-          <%= cl_image_tag @user.photo, class: "img-thumbnail" %>
+          <%= cl_image_tag @user.photo, :width=>250, :height=>250, :gravity=>"face", :crop=>"fill", class: "img-thumbnail" %>
 
         <% elsif %>
           <%= image_tag "http://placehold.it/250x250", class: "img-thumbnail" %>
@@ -75,10 +75,16 @@
                 <h3 class="panel-title">Pets you sit:</h3>
               </div>
               <div class="panel-body">
+                <%= s.association :pet_types, as: :check_boxes, label_method: :get_image %>
+
+
+
+
+                <!--<%= check_box_tag :pet_type %>
                 <%= image_tag "cat.png" %>
-                <%= check_box_tag :pet_type %>
 
                 <%= image_tag "dog.png" %>
+                <%= s.association :pet_types %>
                 <%= check_box_tag :pet_type %>
 
                 <%= image_tag "bird.png" %>
@@ -88,7 +94,7 @@
                 <%= check_box_tag :pet_type %>
 
                 <%= image_tag "horse.png" %>
-                <%= check_box_tag :pet_type %>
+                <%= check_box_tag :pet_type %>-->
               </div>
             </div>
 
