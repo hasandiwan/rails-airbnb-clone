@@ -131,3 +131,11 @@ user_8 = User.new({
     remote_photo_url: "http://r.fod4.com/c=sq/s=w1000,pd1/o=80/http://p.fod4.com/p/channels/kuoiu/profile/s=w1200/o=95/Teq89AnQSNW2Vp5hwori_Phil_Augusta_Jackson.jpg",
   })
 
+dog = PetType.create(name: "Dog")
+cat = PetType.create(name: "Cat")
+bird = PetType.create(name: "Bird")
+reptile = PetType.create(name: "Reptile")
+horse = PetType.create(name: "Horse")
+
+
+
