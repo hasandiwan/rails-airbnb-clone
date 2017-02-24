@@ -14,6 +14,8 @@ class UsersController < ApplicationController
     @sitter = @user.sitter
     @sitter ||= Sitter.new(user: current_user) if params[:sitter]
 
+    @review = Review.new
+
     @hash = Gmaps4rails.build_markers(@user) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
